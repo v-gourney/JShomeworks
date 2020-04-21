@@ -32,11 +32,9 @@ let userString = prompt ('Введите строку на проверку ко
 let userLettersArr = userString.split('');
 let counter = 0;
 let vowelChecker = userLettersArr.forEach ((item) => {
-    allVowels.forEach ((vowel) => {
-        if (item === vowel) {
+        if (allVowels.includes(item)) {
             counter++;
         }
-    })
 })
 console.group (`Результаты метода forEach:`);
 console.log (`Количество гласных в вашей строке = ${counter}`);
@@ -49,12 +47,10 @@ console.groupEnd ();
     let counter = 0;
     let vowelChecker = [];
     userLettersArr.filter((item) => {
-        allVowels.forEach ((vowel) => {
-            if (item === vowel) {
+            if (allVowels.includes(item)) {
                 counter++;
                 vowelChecker.push(item);
             } 
-        })
     })
     console.group (`Результаты метода filter:`);
     console.log (`Вот ваши гласные ${vowelChecker}`);
@@ -66,11 +62,9 @@ console.groupEnd ();
     let userString = prompt ('И финальный ввод строки на проверку гласных').toLowerCase();
     let userLettersArr = userString.split('');
     let vowelCounter = userLettersArr.reduce((reducer,item) => {
-        allVowels.forEach ((vowel) => {
-            if (item === vowel) {
-                reducer++;
-            } 
-        }) 
+        if (allVowels.includes(item)) {
+            reducer++;
+        }
     return reducer}, 0);
     console.group (`Результаты метода reduce:`);
     console.log (`Количество гласных в новой строке равняется ${vowelCounter}`);

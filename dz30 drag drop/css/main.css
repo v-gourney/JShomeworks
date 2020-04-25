@@ -1,0 +1,22 @@
+main {
+  width: 80vw;
+  height: 80vh;
+  background-color: #e98c8c9c;
+  outline: rgba(0, 0, 0, 0.678) 2px solid;
+  font-size: 30px;
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
+}
+main::after {
+  content: 'drag&drop here';
+  color: #ff00004d;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 1;
+}
+img {
+  width: 100px;
+  height: 100px;
+}

@@ -29,6 +29,8 @@ for (j=0; j<dragImageClassifier.length; j++) {
 }
 
 let draggedImage=null;
+let shiftX = null;
+let shiftY = null;
 //описнаие методов дрэг-картинки
 function imgDragStart(event) {
         draggedImage = event.target;
@@ -36,14 +38,14 @@ function imgDragStart(event) {
         this.style.cursor = 'pointer';
         this.style.zIndex = '5';
         this.style.position = 'absolute';
-        this.style.left = event.pageX - this.offsetWidth / 2 + 'px'; 
-        this.style.top = event.pageY - this.offsetHeight / 2 + 'px';
+        shiftX = event.pageX - this.getBoundingClientRect().left;
+        shiftY = event.pageY - this.getBoundingClientRect().top;
         dragField.style.backgroundColor = "grey";
 }
 function imgDrag(event) {
         if (draggedImage) {
-                draggedImage.style.left = event.pageX - draggedImage.offsetWidth / 2 + 'px';
-                draggedImage.style.top = event.pageY - draggedImage.offsetHeight / 2 + 'px';
+                draggedImage.style.left = event.pageX - shiftX + 'px';
+                draggedImage.style.top = event.pageY - shiftY + 'px';
         }
 }
 function imgDragEnd(event) {

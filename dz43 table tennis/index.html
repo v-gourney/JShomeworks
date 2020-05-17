@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table tennis DOM</title>
+    
+    <link rel="stylesheet" href="./css/main.css">  
+</head>
+<body>
+    <input type='button' id='startstop' value='Start playing' autofocus>
+    <input type='number' id='blueScore' value='0' disabled min="0" max="10">
+    <input type='number' id='redScore' value='0' disabled min="0" max="10">
+    <div id='table'>
+        <div id="paddleBlue"></div>
+        <div id="paddleRed"></div>
+        <img src="./media/ball.png" id='ball' alt="ball">
+    </div>
+    <p>
+        <h1>Simple rules:</h1>
+        <ul>
+        <li>  - Play until score 10 points;</li>
+        <li> - Ball speed increases with each paddle hit;</li> 
+        <li> - ShiftLeft&ControlLeft to control left blue paddle;</li> 
+        <li> - ArrowUp&ArrowDown to control right red paddle;</li> 
+        </ul>
+    </p>
+    <h2 id="win"></h2>
+    <script src="./js/main.js"></script>
+</body>
+</html>

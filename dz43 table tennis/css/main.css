@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.body {
+ display: flex;
+ flex-direction: column;
+ 
+}
+#startstop {
+  width: 140px;
+  height: 40px;
+  margin: 3vh;
+  padding: 10px;
+  background-color: rgba(61, 139, 113, 0.589);
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#blueScore {
+  text-align: center;
+  border: none;
+  background-color: inherit;
+  font-size: 40px;
+  font-weight: 500;
+  color: dodgerblue;
+  margin-left: 40px;
+
+}
+#redScore {
+  text-align: center;
+  border: none;
+  background-color: inherit;
+  font-size: 40px;
+  font-weight: 500;
+  color: firebrick;
+}
+#table {
+  margin-left: 1vw ;
+  width: 730px;
+  height: 400px;
+  position: relative;
+  background-image: url('../media/table.jpg');
+  background-size: cover;
+  font-size: 60px;
+  line-height: 400px;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
+#paddleBlue {
+  box-sizing: border-box;
+  width: 10px;
+  height: 100px;
+  border: black solid 2px;
+  border-radius: 20%;
+  position: absolute;
+  background-color: dodgerblue;
+  left: 0px;
+  top: 150px;
+}
+#paddleRed {
+  box-sizing: border-box;
+  width: 10px;
+  height: 100px;
+  border: black solid 2px;
+  border-radius: 20%;
+  position: absolute;
+  background-color: firebrick;
+  left: 720px;
+  top: 150px;
+}
+#ball {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+p {
+  margin: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+  margin: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+li {
+  margin-left: 30px;
+  list-style: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+li:nth-child(3) {
+  color: blue;
+}
+li:nth-child(4) {
+  color: red;
+}
+#win {
+  margin: 10px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

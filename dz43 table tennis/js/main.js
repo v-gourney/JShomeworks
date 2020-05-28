@@ -27,6 +27,7 @@ const ballH = {
         ball.style.top=this.posY+"px";
     }
 }
+
 const areaH = {
     width : 730,
     height : 400
@@ -54,41 +55,54 @@ const redPad = {
 }
 ///////////////////////////////
 // paddles movements
-document.addEventListener('keydown', (event)=> {
-    switch(event.code) {
-        case 'ShiftLeft':  
-            if (bluePad.posY <= 0) {
-                bluePad.posY = 0;
-                break
+const pressedKeys = {};
+
+document.addEventListener ('keydown', (event)=> {
+
+            if (!(event.code in pressedKeys)) {
+                pressedKeys[event.code] = 'true';
+            }  
+            console.log (pressedKeys);
+
+            if (pressedKeys['ShiftLeft']) {
+                if (bluePad.posY <= 0) {
+                    bluePad.posY = 0;
+                } else {
+                    bluePad.posY -= bluePad.speedY;
+                    bluePad.move();
+                }
             }
-            bluePad.posY -= bluePad.speedY;
-            bluePad.move();
-            break
-        case 'ControlLeft':  
-            if (bluePad.posY + bluePad.height >= 400) {
-                bluePad.posY = 300;
-                break
+            if (pressedKeys['ControlLeft']) {
+                if (bluePad.posY + bluePad.height >= 400) {
+                    bluePad.posY = 300;
+                } else {
+                    bluePad.posY += bluePad.speedY;
+                    bluePad.move();
+                }
             }
-            bluePad.posY += bluePad.speedY;
-            bluePad.move();
-            break
-        case 'ArrowUp':  
-            if (redPad.posY <= 0) {
-                redPad.posY = 0;
-                break
+            if (pressedKeys['ArrowUp']) { 
+                if (redPad.posY <= 0) {
+                    redPad.posY = 0;
+                } else {
+                    redPad.posY -= redPad.speedY;
+                    redPad.move();
+                }
             }
-            redPad.posY -= redPad.speedY;
-            redPad.move();
-            break
-        case 'ArrowDown':  
-            if (redPad.posY + redPad.height >= 400) {
-                redPad.posY = 300;
-                break
+            if (pressedKeys['ArrowDown']) {
+                if (redPad.posY + redPad.height >= 400) {
+                    redPad.posY = 300;
+                } else {
+                    redPad.posY += redPad.speedY;
+                    redPad.move();
+                }
             }
-            redPad.posY += redPad.speedY;
-            redPad.move();
-            break
+});   
+
+document.addEventListener ('keyup', (event)=> {
+    if (event.code in pressedKeys) {
+        delete pressedKeys[event.code];
     }
+    console.log (pressedKeys);
 });
 
 

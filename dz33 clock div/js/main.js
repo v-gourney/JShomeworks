@@ -1,4 +1,11 @@
 "use strict";
+let cvs = document.getElementById ('CVSclock');
+let context = cvs.getContext('2d');
+cvs.style.position ='relative'
+cvs.style.top ='20px'
+cvs.style.left ='10px'
+context.strokeStyle = 'green';
+
 //создание циферблата
 let clockPlate = document.createElement('div');
 clockPlate.id = 'clockPlate';
@@ -32,8 +39,6 @@ for (i=1; i<=12; i++) {
   hourDeg+=Math.PI/6;
   clockPlate.appendChild (hourDiv)
 }
-
-
 //добавление стрелок div
 let hourArrow = document.createElement ('div')
 hourArrow.id = "hourArrow"
@@ -88,7 +93,6 @@ function arrowsMove () {
     minuteArrow.style.transform = 'rotate('+ minuteAngle+'deg)';
     secondsArrow.style.transform = 'rotate('+ secondsAngle+'deg)';
 }
-
 //создание div с актуальным временем
 let divTime = document.createElement ('div');
 divTime.id = 'divTime'
@@ -109,8 +113,69 @@ function updateTime() {
     let currTime=new Date();
     let currTimeStr=formatTime(currTime);
     document.getElementById('divTime').innerHTML= currTimeStr;
-}
 
+    //отрисовка циферблата canvas
+    context.beginPath();
+    context.arc(cvs.height/2, cvs.width/2, 149, 0, 2 * Math.PI, false);
+    context.fillStyle = '#ffd480';
+    context.fill();
+    context.lineWidth = 2;
+    context.strokeStyle = 'green';
+    context.stroke();
+
+    let cvshourDeg = Math.PI*4/3;
+    for (let i=1; i<=12; i++) {
+        context.beginPath();
+        context.arc(150 - 120*Math.cos(cvshourDeg), 150 + 120*Math.sin(cvshourDeg), 15, 0, 2 * Math.PI, false);
+        context.fillStyle = 'black';
+        context.font='bold 18px Arial'
+        context.textBaseline = "middle";
+        context.textAlign = "center";
+        context.fillText(i,(150 - 120*Math.cos(cvshourDeg)),(150 + 120*Math.sin(cvshourDeg)));
+        context.stroke();
+        cvshourDeg-=Math.PI/6;
+    }
+
+    //отрисовка стрелок canvas
+    let timeAngles = new Date();
+    let hourCurrent = timeAngles.getHours();
+    if (hourCurrent > 12) {
+        hourCurrent-=12;
+    }
+    let hourAngle = (Math.round(hourCurrent*30 + (timeAngles.getMinutes())*0.5))*Math.PI/180 ;
+    let minuteAngle = ((timeAngles.getMinutes())*6)*Math.PI/180;
+    let secondsAngle = ((timeAngles.getSeconds())*6)*Math.PI/180;
+
+    // часы
+    context.strokeStyle = ' #00802b';
+    context.lineWidth=8;
+    context.beginPath();
+    context.moveTo(150,150);
+    context.lineTo(150+(70*Math.sin(hourAngle)), (150-(70*Math.cos(hourAngle))))
+    context.lineCap = "round"
+    context.stroke();
+    // минуты
+    context.strokeStyle = '#6699ff';
+    context.lineWidth=5;
+    context.beginPath();
+    context.moveTo(150,150);
+    context.lineTo(150+(90*Math.sin(minuteAngle)), (150-(90*Math.cos(minuteAngle))))
+    context.lineCap = "round"
+    context.stroke();
+    // секунды
+    context.strokeStyle = '#cc66ff';
+    context.lineWidth=3;
+    context.beginPath();
+    context.moveTo(150,150);
+    context.lineTo(150+(110*Math.sin(secondsAngle)), (150-(110*Math.cos(secondsAngle))))
+    context.lineCap = "round"
+    context.stroke();
+    //отрисовка цифер реального времени canvas
+    context.fillStyle = 'black';
+    context.font='bold 22px Arial'
+    context.fillText(currTimeStr,150,100);
+
+}
 // форматирует переданную дату-время в формате чч:мм:сс
 function formatTime(time) {
     let hours=time.getHours();

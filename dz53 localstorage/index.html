@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/main.css">
+    <title>Drinks</title>
+</head>
+<body>
+    
+    <div class="jumbotron mb-0">
+        <h1 class="display-4">Напитки, алкогольные и не очень</h1>
+        <p class="lead">
+            На основе класса HashStorageClass (из проекта DRINKS) разработать класс LocStorageClass (в модуле LocStorage.js) для хранения информации в localStorage.
+На веб-странице создать два объекта класса LocStorageClass и реализовать два интерфейса (набора кнопок) — для работы с напитками и для работы с блюдами.</p>
+        <hr class="my-4">
+
+        <label > Введите название напитка
+            <input type="text" id="drinkfield" placeholder="Кисель">
+        </label>
+        <textarea name="" id="recipefield" cols="30" rows="10" placeholder="Рецепт приготовления" ></textarea>
+        <label> Отметьте, если алкогольный
+            <input id="alcocheck" type="checkbox">
+        </label>
+
+        <hr class="my-4">   
+        <p>Кнопки для работы с LocalStorage
+            <span id="successed">Напиток добавлен!</span>
+        </p>
+        <p class="lead">
+            <button type="button" id="buttongreen"class="btn btn-success">Ввод информации о напитке</button>
+            <button type="button" id="buttonblue" class="btn btn-info">Получение информации о напитке</button>
+            <button type="button" id="buttonyellow" class="btn btn-warning">Перечень всех напитков</button>
+            <button type="button" id="buttonred" class="btn btn-danger">Удаление информации о напитке</button>
+
+        </p>
+    </div>
+    <div id="data" class="container pl-4 bg-light text-dark" ></div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="js/locStorage.js"></script>
+</body>
+</html>

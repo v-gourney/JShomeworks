@@ -1,0 +1,26 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2%;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+button {
+  margin: 1%;
+  box-shadow: inset -1px 0px 11px 0px rgba(50, 50, 50, .3);
+}
+button:hover {
+  cursor: pointer;
+  color: blue;
+  box-shadow: inset -1px 0px 11px 0px rgba(16, 74, 141, 0.438);
+
+}
+#clockPlate:hover {
+  background-color: rgba(195, 241, 42, 0.671) !important;
+}
+span {
+  margin-left: 1%;
+}
+

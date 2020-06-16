@@ -1,0 +1,28 @@
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body {
+  background-color: rgba(135, 209, 105, 0.4);
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  margin-bottom: 10px;
+}
+a:active {
+  color: darkgreen;
+}
+a:visited {
+  color: rgb(3, 54, 3);
+}
+.description {
+  max-width: 50vw;
+  color: darkslategray;
+}
+aside, #articleList {
+  position: absolute;
+  top: 3vh;
+  left: 52vw;
+}
